@@ -1,0 +1,22 @@
+const observer = document.getElementById("observer"); // container of the grid that would be cloned
+const clone = observer.querySelector(".clone"); // the grid that would be clone
+const grid = document.getElementById("gridCMS"); //The Grid that would beb observed
+const gridNumber = document.getElementById("gridNumber");
+
+const items = grid.children.length; // get all grid items
+
+
+// get number of columns
+const style = window.getComputedStyle(grid);
+const columns = style.getPropertyValue("grid-template-columns").split(" ").length;
+
+const rows = Math.ceil(items / columns); // calculate total rows of targeted grid
+
+console.log("number of rows: ", rows) // print number of rows detected
+
+
+// duplicate grid
+for (let i = 1; i < rows; i++) {
+	const newClone = clone.cloneNode(true);
+	observer.appendChild(newClone);
+}
