@@ -1,0 +1,11 @@
+  document.querySelectorAll('.videocontainer').forEach(container => {
+    const iframe = container.querySelector('iframe');
+    const player = new Vimeo.Player(iframe);
+    const playBtn = container.querySelector('.playBtn'); // custom thumbnail class
+
+    playBtn.addEventListener('click', () => {
+      playBtn.style.display = "none";   // hide thumbnail
+      iframe.style.display = "block";   // show iframe
+      player.play();                    // play video
+    });
+  });
